@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ejemplos Chart.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; background: #fff; color: #000; margin: 20px; }
+    a { color: #0645ad; }
+    h1 { margin: 0 0 12px 0; }
+    section { margin-bottom: 28px; }
+    canvas { max-width: 640px; display: block; }
+  </style>
+</head>
+<body>
+  <h1>Ejemplos con Chart.js</h1>
+  <p><a href="./index.html">Volver a la página principal</a></p>
+
+  <section>
+    <h2>Gráfico de Barras</h2>
+    <canvas id="bar" width="640" height="320"></canvas>
+  </section>
+
+  <section>
+    <h2>Gráfico de Líneas</h2>
+    <canvas id="line" width="640" height="320"></canvas>
+  </section>
+
+  <section>
+    <h2>Gráfico de Pastel</h2>
+    <canvas id="pie" width="480" height="320"></canvas>
+  </section>
+
+  <section>
+    <h2>Gráfico de Dona</h2>
+    <canvas id="doughnut" width="480" height="320"></canvas>
+  </section>
+
+  <script>
+    // Barras
+    new Chart(document.getElementById('bar'), {
+      type: 'bar',
+      data: {
+        labels: ['A','B','C','D','E'],
+        datasets: [{ label: 'Unidades', data: [12,19,7,14,9] }]
+      },
+      options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    // Líneas
+    new Chart(document.getElementById('line'), {
+      type: 'line',
+      data: {
+        labels: ['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'],
+        datasets: [{ label: 'Usuarios', data: [30,42,38,50,61,45,33], tension: 0.3, fill: false }]
+      },
+      options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    // Pastel
+    new Chart(document.getElementById('pie'), {
+      type: 'pie',
+      data: {
+        labels: ['Rojo','Azul','Amarillo'],
+        datasets: [{ data: [12, 19, 7] }]
+      }
+    });
+
+    // Dona
+    new Chart(document.getElementById('doughnut'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Móvil','Desktop','Tablet'],
+        datasets: [{ data: [55, 35, 10] }]
+      }
+    });
+  </script>
+</body>
+</html>
